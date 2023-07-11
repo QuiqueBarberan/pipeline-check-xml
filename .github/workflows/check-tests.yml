@@ -48,6 +48,6 @@ jobs:
             exit 1
           fi
       - name: Publish Test Report
-        uses: starburstdata/action-testng-report@v1
+        uses: starburstdata/action-testng-report@v1.0.4
         with:
           github_token: ${{ secrets.GH_TOKEN }}
