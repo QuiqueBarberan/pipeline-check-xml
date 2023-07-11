@@ -23,10 +23,17 @@ jobs:
 
       - name: Check xml results
         uses: mavrosxristoforos/get-xml-info@1.1.1
-        id: getxml
+        id: totalvalue
         with:
           xml-file: 'resources/testng-results.xml'
           xpath: '//testng-results/@total'
+      - name: Check xml results
+        uses: mavrosxristoforos/get-xml-info@1.1.1
+        id: passedvalue
+        with:
+          xml-file: 'resources/testng-results.xml'
+          xpath: '//testng-results/@passed'
 
-      - name: Print data captured
-        run: echo '${{ steps.getxml.outputs.info }}'
+      - name: Compare results
+        if: ${{ steps.totalvalue.outputs.info }} > ${{ steps.passedvalue.outputs.info }}
+        run: exit 1
