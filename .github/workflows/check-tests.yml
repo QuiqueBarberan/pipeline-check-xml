@@ -26,7 +26,7 @@ jobs:
         id: getxml
         with:
           xml-file: 'resources/testng-results.xml'
-          xpath: '//testng-results/total'
+          xpath: '//testng-results/text()'
 
       - name: Print data captured
         run: echo '${{ steps.getxml.outputs.info }}'
