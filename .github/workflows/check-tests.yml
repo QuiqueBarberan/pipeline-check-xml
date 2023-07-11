@@ -22,7 +22,7 @@ jobs:
         run: echo 'Run QA tests'
 
       - name: Check xml results
-        uses: mavrosxristoforos/get-xml-info@1.0
+        uses: mavrosxristoforos/get-xml-info@1.1.1
         with:
           xml-file: 'resources/testng-results.xml'
           xpath: '//testng-results'
