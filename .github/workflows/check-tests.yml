@@ -39,6 +39,11 @@ jobs:
       - name: Show Data passedvalue
         run: echo 'passedvalue:${{ steps.passedvalue.outputs.info }}'
 
-      - name: Compare results
-        if: ${{ steps.totalvalue.outputs.info }} > ${{ steps.passedvalue.outputs.info }}
-        run: exit 1
+      - name: Comparar valores
+        run: |
+          total=${{ steps.totalvalue.outputs.info }}
+          passed=${{ steps.passedvalue.outputs.info }}
+          if [ "$total" -gt "$passed" ]; then
+            echo "El valor de Total es mayor que Passed."
+            exit 1
+          fi
