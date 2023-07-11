@@ -34,6 +34,11 @@ jobs:
           xml-file: 'resources/testng-results.xml'
           xpath: '//testng-results/@passed'
 
+      - name: Show Data totalvalue
+        run: echo 'totalvalue:${{ steps.totalvalue.outputs.info }}'
+      - name: Show Data passedvalue
+        run: echo 'passedvalue:${{ steps.passedvalue.outputs.info }}'
+
       - name: Compare results
         if: ${{ steps.totalvalue.outputs.info }} > ${{ steps.passedvalue.outputs.info }}
         run: exit 1
