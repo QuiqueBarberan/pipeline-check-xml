@@ -23,6 +23,7 @@ jobs:
 
       - name: Check xml results
         uses: mavrosxristoforos/get-xml-info@1.1.1
+        id: getxml
         with:
           xml-file: 'resources/testng-results.xml'
           xpath: '//testng-results'
