@@ -1,11 +1,13 @@
-name: Team-DevOps
-run-name: ${{ github.workflow }} by @${{ github.actor }}
+name: Probando XML
+run-name: ${{ github.workflow }} by @${{ github.actor }} y entornos ninguno
 
 on:
   push:
     branches:
       - master
   pull_request:
+
+permissions: write-all
 
 jobs:
   PrepareAPKandTest:
@@ -47,3 +49,7 @@ jobs:
             echo "El valor de Total es mayor que Passed."
             exit 1
           fi
+      - name: Publish Test Report
+        uses: starburstdata/action-testng-report@v1.0.4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
