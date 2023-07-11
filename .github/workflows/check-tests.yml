@@ -16,7 +16,7 @@ jobs:
 
 
       - name: Prepare APK
-        run: echo 'run ./gradle with parameter
+        run: echo 'run ./gradle with parameter'
 
       - name: Run QA tests
         run: echo 'Run QA tests'
