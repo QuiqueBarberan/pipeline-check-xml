@@ -1,0 +1,31 @@
+name: Team-DevOps
+run-name: ${{ github.workflow }} by @${{ github.actor }}
+
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+
+jobs:
+  PrepareAPKandTest:
+    name: Prepare APK and test QA results
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+
+      - name: Prepare APK
+        run: echo 'run ./gradle with parameter
+
+      - name: Run QA tests
+        run: echo 'Run QA tests'
+
+      - name: Check xml results
+        uses: mavrosxristoforos/get-xml-info@1.0
+        with:
+          xml-file: 'resources/testng-results.xml'
+          xpath: '//testng-results'
+
+      - name: Create Release
+        run: echo '${{ steps.getxml.outputs.info }}'
