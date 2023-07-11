@@ -50,4 +50,4 @@ jobs:
       - name: Publish Test Report
         uses: starburstdata/action-testng-report@v1.0.4
         with:
-          github_token: ${{ secrets.GH_TOKEN }}
+          github_token: ${{ secrets.GITHUB_TOKEN }}
